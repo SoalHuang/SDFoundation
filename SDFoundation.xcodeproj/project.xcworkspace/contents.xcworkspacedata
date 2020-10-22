@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:/Users/soso/Downloads/PTFoundation/SDFoundation.xcodeproj">
+      location = "self:SDFoundation.xcodeproj">
    </FileRef>
 </Workspace>
