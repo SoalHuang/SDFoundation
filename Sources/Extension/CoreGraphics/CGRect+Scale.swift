@@ -89,17 +89,17 @@ public extension SDExtension where T == CGRect {
     }
 }
 
-public extension SDExtension where T == Array<CGRect> {
-    
-    var autoScale: [T.Element] {
-        return scale(AutoScale)
-    }
-    
-    var autoScaleMax: [T.Element] {
-        return scale(AutoScaleMax)
-    }
-    
-    func scale(_ scale: CGFloat) -> [T.Element] {
-        return base.compactMap { $0 * scale }
-    }
-}
+//public extension SDExtension where T == Array<CGRect> {
+//    
+//    var autoScale: [T.Element] {
+//        return scale(AutoScale)
+//    }
+//    
+//    var autoScaleMax: [T.Element] {
+//        return scale(AutoScaleMax)
+//    }
+//    
+//    func scale(_ scale: CGFloat) -> [T.Element] {
+//        return base.compactMap { $0 * scale }
+//    }
+//}

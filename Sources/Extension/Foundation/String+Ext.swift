@@ -305,7 +305,7 @@ extension String {
     
     func toJsonObject() -> Any? {
         guard let data = data(using: .utf8) else { return nil }
-        return try? JSONSerialization.jsonObject(with: data, options: [.mutableContainers, .mutableLeaves, .fragmentsAllowed])
+        return try? JSONSerialization.jsonObject(with: data, options: [.mutableContainers, .mutableLeaves])
     }
 }
 

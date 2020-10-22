@@ -24,9 +24,9 @@ public extension SDExtension where T == Data {
     }
     
     /// Data -> Hex [%02hhx]
-    var hexString: String {
-        return base.withUnsafeBytes { $0.reduce("") { $0 + String(format: "%02hhx", $1) } }
-    }
+//    var hexString: String {
+//        return base.withUnsafeBytes { $0.reduce("") { $0 + String(format: "%02hhx", $1) } }
+//    }
     
     var base64Value: String {
         let base64String = base.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))

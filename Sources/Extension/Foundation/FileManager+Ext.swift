@@ -19,31 +19,47 @@ public protocol FilePathCovertible {
 
 extension String: FilePathCovertible {
     
-    public func asFileURL() -> URL { URL(fileURLWithPath: self) }
+    public func asFileURL() -> URL {
+        return URL(fileURLWithPath: self)
+    }
     
-    public func asFilePath() -> String { self }
+    public func asFilePath() -> String {
+        return self
+    }
 }
 
 extension URL: FilePathCovertible {
     
-    public func asFileURL() -> URL { self }
+    public func asFileURL() -> URL {
+        return self
+    }
     
-    public func asFilePath() -> String { self.path }
+    public func asFilePath() -> String {
+        return self.path
+    }
 }
 
 public extension FilePathCovertible {
     
     /// 如果是文件夹，则返回true
-    var isDirectoryPath: Bool { self.asFileURL().hasDirectoryPath }
+    var isDirectoryPath: Bool {
+        return self.asFileURL().hasDirectoryPath
+    }
     
     /// 文件或目录是否存在
-    var isExists: Bool { FileManager.default.fileExists(atPath: self.asFilePath()) }
+    var isExists: Bool {
+        return FileManager.default.fileExists(atPath: self.asFilePath())
+    }
     
     /// 文件是否存在
-    var isFileExists: Bool { FileManager.default.sd.fileExists(at: self) }
+    var isFileExists: Bool {
+        return FileManager.default.sd.fileExists(at: self)
+    }
     
     /// 目录是否存在
-    var isDirectoryExists: Bool { FileManager.default.sd.directoryExists(at: self) }
+    var isDirectoryExists: Bool {
+        return FileManager.default.sd.directoryExists(at: self)
+    }
     
     /// 所有文件（渐遍历）
     var allFilePaths: [FilePathCovertible] {
@@ -56,48 +72,58 @@ public extension FilePathCovertible {
     }
     
     /// 路径上的所有组件
-    var filePathComponents: [String] { self.asFileURL().pathComponents }
+    var filePathComponents: [String] {
+        return self.asFileURL().pathComponents
+    }
     
     /// 路径最后的组件
-    var lastFilePathComponent: String { self.asFileURL().lastPathComponent }
+    var lastFilePathComponent: String {
+        return self.asFileURL().lastPathComponent
+    }
 
     /// 路径的后缀
-    var filePathExtension: String { self.asFileURL().pathExtension }
+    var filePathExtension: String {
+        return self.asFileURL().pathExtension
+    }
     
     /// 文件名/文件夹名（去后缀）
-    var filePathName: String { self.asFileURL().deletingFilePathExtension().lastFilePathComponent }
+    var filePathName: String {
+        return self.asFileURL().deletingFilePathExtension().lastFilePathComponent
+    }
     
     /// 当前文件夹
-    var directoryPath: FilePathCovertible { self.deletingLastFilePathComponent() }
+    var directoryPath: FilePathCovertible {
+        return self.deletingLastFilePathComponent()
+    }
 
     /// 添加路径元件，isDirectory: 是否为文件夹
     func appendingFilePathComponent(_ pathComponent: String, isDirectory: Bool) -> FilePathCovertible {
-        self.asFileURL().appendingPathComponent(pathComponent, isDirectory: isDirectory)
+        return self.asFileURL().appendingPathComponent(pathComponent, isDirectory: isDirectory)
     }
 
     /// 添加路径元件
     func appendingFilePathComponent(_ pathComponent: String) -> FilePathCovertible {
-        self.asFileURL().appendingPathComponent(pathComponent)
+        return self.asFileURL().appendingPathComponent(pathComponent)
     }
 
     /// 删除路径的最后一个元件
     func deletingLastFilePathComponent() -> FilePathCovertible {
-        self.asFileURL().deletingLastPathComponent()
+        return self.asFileURL().deletingLastPathComponent()
     }
 
     /// 添加后缀
     func appendingFilePathExtension(_ pathExtension: String) -> FilePathCovertible {
-        self.asFileURL().appendingPathExtension(pathExtension)
+        return self.asFileURL().appendingPathExtension(pathExtension)
     }
     
     /// 替换后缀名
     func replaceFilePathExtension(_ pathExtension: String) -> FilePathCovertible {
-        self.deletingFilePathExtension().appendingFilePathExtension(pathExtension)
+        return self.deletingFilePathExtension().appendingFilePathExtension(pathExtension)
     }
 
     /// 删除后缀
     func deletingFilePathExtension() -> FilePathCovertible {
-        self.asFileURL().deletingPathExtension()
+        return self.asFileURL().deletingPathExtension()
     }
     
     func move(to filePath: FilePathCovertible) throws {
@@ -127,19 +153,29 @@ public extension FilePathCovertible {
 
 public extension FilePathCovertible {
     
-    var attributes: [FileAttributeKey : Any]? { FileManager.default.sd.attributesOfItem(at: self) }
+    var attributes: [FileAttributeKey : Any]? {
+        return FileManager.default.sd.attributesOfItem(at: self)
+    }
     
     /// 修改时间
-    var modificationDate: Date? { FileManager.default.sd.modificationDateOfItem(at: self) }
+    var modificationDate: Date? {
+        return FileManager.default.sd.modificationDateOfItem(at: self)
+    }
     
     /// 创建时间
-    var creationDate: Date? { FileManager.default.sd.creationDateOfItem(at: self) }
+    var creationDate: Date? {
+        return FileManager.default.sd.creationDateOfItem(at: self)
+    }
     
     /// 文件/目录占用的磁盘空间大小
-    var size: Int64 { FileManager.default.sd.sizeOfItem(at: self) }
+    var size: Int64 {
+        return FileManager.default.sd.sizeOfItem(at: self)
+    }
     
     /// 文件/目录占用的磁盘空间大小，如果是目录则统计目录中所有大小的总和
-    var totalSize: Int64 { (try? FileManager.default.sd.totalSizeOfItem(at: self)) ?? 0 }
+    var totalSize: Int64 {
+        return (try? FileManager.default.sd.totalSizeOfItem(at: self)) ?? 0
+    }
 }
 
 /// MARK: - FileManager + Ext
@@ -154,7 +190,9 @@ public extension SDExtension where T == FileManager {
         }
     }
     
-    var temporaryDirectoryPath: FilePathCovertible { NSTemporaryDirectory() }
+    var temporaryDirectoryPath: FilePathCovertible {
+        return NSTemporaryDirectory()
+    }
     
     var systemDiskSize: Int64 {
         do {

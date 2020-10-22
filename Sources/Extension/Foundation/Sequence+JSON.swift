@@ -10,12 +10,12 @@ import Foundation
 
 public extension SDExtension where T : Sequence {
     
-    func toJsonData(options: JSONSerialization.WritingOptions = [.fragmentsAllowed]) -> Data? {
+    func toJsonData(options: JSONSerialization.WritingOptions = []) -> Data? {
         guard JSONSerialization.isValidJSONObject(base) else { return nil }
         return try? JSONSerialization.data(withJSONObject: base, options: options)
     }
     
-    func toJsonString(options: JSONSerialization.WritingOptions = [.fragmentsAllowed],
+    func toJsonString(options: JSONSerialization.WritingOptions = [],
                       encoding: String.Encoding = .utf8) -> String? {
         guard let data = toJsonData(options: options) else { return nil }
         return String(data: data, encoding: encoding)

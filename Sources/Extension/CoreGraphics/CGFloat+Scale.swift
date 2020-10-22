@@ -59,17 +59,17 @@ public extension SDExtension where T == CGFloat {
     var boldFont: UIFont { return UIFont.boldSystemFont(ofSize: base) }
 }
 
-public extension SDExtension where T == Array<CGFloat> {
-    
-    var autoScale: [T.Element] {
-        return scale(AutoScale)
-    }
-    
-    var autoScaleMax: [T.Element] {
-        return scale(AutoScaleMax)
-    }
-    
-    func scale(_ scale: CGFloat) -> [T.Element] {
-        return base.compactMap { $0 * scale }
-    }
-}
+//public extension SDExtension where T == Array<CGFloat> {
+//    
+//    var autoScale: [T.Element] {
+//        return scale(AutoScale)
+//    }
+//    
+//    var autoScaleMax: [T.Element] {
+//        return scale(AutoScaleMax)
+//    }
+//    
+//    func scale(_ scale: CGFloat) -> [T.Element] {
+//        return base.compactMap { $0 * scale }
+//    }
+//}
