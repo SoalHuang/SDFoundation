@@ -12,6 +12,7 @@ import UIKit.UIApplication
 extension SecondScheduler {
     
     // MARK: Public
+    @objc
     public func removeAll() {
         self.queue.async { [weak self] in
             guard let `self` = self else { return }
@@ -20,6 +21,7 @@ extension SecondScheduler {
         }
     }
     
+    @objc
     public func remove(forKey key: AnyHashable) {
         self.queue.async { [weak self] in
             guard let `self` = self else { return }
@@ -30,6 +32,7 @@ extension SecondScheduler {
         }
     }
     
+    @objc
     public func add(current: Int = Int.max,
                     interval: Int = 1,
                     forKey key: AnyHashable,
@@ -55,15 +58,17 @@ extension SecondScheduler {
     }
 }
 
-public final class SecondScheduler {
+public final class SecondScheduler: NSObject {
     
+    @objc
     public static let scheduler = SecondScheduler()
     
     deinit {
         removeApplicationOberver()
     }
     
-    public init() {
+    public override init() {
+        super.init()
         self.timer = Timer(fireAt: Date.distantFuture,
                            interval: 1.0,
                            target: self,
