@@ -63,12 +63,12 @@ public extension FilePathCovertible {
     
     /// 所有文件（渐遍历）
     var allFilePaths: [FilePathCovertible] {
-        return ((try? FileManager.default.sd.allFilePaths(at: self)) ?? []) ?? []
+        return ((try? FileManager.default.sd.allFilePaths(at: self)) ?? []) 
     }
     
     /// 所有文件（深遍历）
     var allSubFilePaths: [FilePathCovertible] {
-        return ((try? FileManager.default.sd.allFilePaths(at: self, searchSub: true)) ?? []) ?? []
+        return ((try? FileManager.default.sd.allFilePaths(at: self, searchSub: true)) ?? []) 
     }
     
     /// 路径上的所有组件
