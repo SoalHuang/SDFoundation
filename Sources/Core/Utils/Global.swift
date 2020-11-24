@@ -11,6 +11,8 @@ import UIKit
 
 public let DeviceIsiPhone4: Bool = (Int(max(UIScreen.main.bounds.size.width, UIScreen.main.bounds.size.height)) == 480)
 public let DeviceIsiPhone5: Bool = (Int(max(UIScreen.main.bounds.size.width, UIScreen.main.bounds.size.height)) == 568)
+public let DeviceIsiPhone6: Bool = (Int(max(UIScreen.main.bounds.size.width, UIScreen.main.bounds.size.height)) == 667)
+public let DeviceIsiPhone6p: Bool = (Int(max(UIScreen.main.bounds.size.width, UIScreen.main.bounds.size.height)) == 736)
 public let DeviceIsiPhoneX: Bool = (Int(max(UIScreen.main.bounds.size.width, UIScreen.main.bounds.size.height)) == 812)
 public let DeviceIsiPhoneMX: Bool = (Int(max(UIScreen.main.bounds.size.width, UIScreen.main.bounds.size.height)) == 896)
 public let DeviceIsXGroup: Bool = DeviceIsiPhoneX || DeviceIsiPhoneMX
