@@ -16,10 +16,10 @@ extension String: SDExtensionCompatible { }
 public extension SDExtension where T == String {
     /**
      修改图片链接的图片尺寸
-     let str = https://www.putao.icloud.icon_100x100.jpg
+     let str = https://www.sd.icloud.icon_100x100.jpg
      let new = str.resize(120, 120)
      print(new)
-     https://www.putao.icloud.icon_120x120.jpg
+     https://www.sd.icloud.icon_120x120.jpg
      */
     func resize(_ width: Int, _ height: Int) -> String {
         guard let url = URL(string: base) else {

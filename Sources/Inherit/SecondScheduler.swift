@@ -83,7 +83,7 @@ public final class SecondScheduler: NSObject {
     // MARK: Private
     private var values: [AnyHashable : Item] = [:]
     private var timer:  Timer!
-    private let queue:  DispatchQueue = DispatchQueue(label: "com.putao.second.scheduler.queue")
+    private let queue:  DispatchQueue = DispatchQueue(label: "com.sd.second.scheduler.queue")
     
     @objc
     private func timerScheduled() {

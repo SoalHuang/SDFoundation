@@ -10,7 +10,7 @@ import Foundation
 
 public extension NSError {
     
-    static let NormalErrorDomain = "com.putao.domain"
+    static let NormalErrorDomain = "com.sd.domain"
     
     convenience init(domain: String = NormalErrorDomain, code: Int = -1, description: String? = nil) {
         if let desc = description {

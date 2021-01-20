@@ -10,7 +10,7 @@ import Foundation
 
 extension Dictionary: SDExtensionCompatible { }
 
-public extension SDExtension where T: DictionaryPutaoable {
+public extension SDExtension where T: DictionarySDable {
     
     /// 将keyValues中value不为nil的元素添加到当前[key:value]中，更新已有的值
     @discardableResult
@@ -24,7 +24,7 @@ public extension SDExtension where T: DictionaryPutaoable {
     }
 }
 
-public protocol DictionaryPutaoable where Key: Hashable {
+public protocol DictionarySDable where Key: Hashable {
     
     associatedtype Key
     associatedtype Value
@@ -34,7 +34,7 @@ public protocol DictionaryPutaoable where Key: Hashable {
     mutating func append(_ keyValues: [Self.Key: Self.Value?]?) -> [Self.Key: Self.Value]
 }
 
-extension Dictionary: DictionaryPutaoable {
+extension Dictionary: DictionarySDable {
     
     /// 将keyValues中value不为nil的元素添加到当前[key:value]中，更新已有的值
     @discardableResult

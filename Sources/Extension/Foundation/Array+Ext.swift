@@ -10,7 +10,7 @@ import Foundation
 
 extension Array: SDExtensionCompatible { }
 
-public extension SDExtension where T: ArrayPutaoable {
+public extension SDExtension where T: ArraySDable {
     
     /// random one element
     var anyOne: T.Element? {
@@ -49,7 +49,7 @@ public extension SDExtension where T: ArrayPutaoable {
     }
 }
 
-public protocol ArrayPutaoable {
+public protocol ArraySDable {
     
     associatedtype Element
     
@@ -68,7 +68,7 @@ public protocol ArrayPutaoable {
     mutating func safeRemoveLast() -> Element?
 }
 
-extension Array: ArrayPutaoable {
+extension Array: ArraySDable {
     
     public var anyOne: Element? {
         guard count > 0 else { return nil }
